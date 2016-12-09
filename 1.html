@@ -1,0 +1,61 @@
+<html>
+<body>
+<script>
+var i = 0;
+function score(){
+  i = i + 1;
+  resEl = document.getElementById('res');
+  resEl.innerHTML = String(i);
+}
+</script>
+
+<svg width="2800" height="2400" style="border: 1px solid black; background: #E0FFFF;">
+<rect x="250" y="250" width="500" height="250" fill="rgb(0, 250, 250)"> 
+
+<animateTransform 
+attributeName="transform" 
+type="rotate" 
+from="0 500 375" 
+to="360 500 375" 
+dur="4s" 
+repeatCount="indefinite"/> 
+
+</rect>
+<rect x="250" y="500" width="500" height="250" fill="rgb(250, 250, 0)"> 
+
+<animateTransform 
+attributeName="transform" 
+type="rotate" 
+from="0 500 375" 
+to="360 500 375" 
+dur="4s" 
+repeatCount="indefinite"/> 
+
+</rect>
+
+
+  <circle id="c1" onclick="score()" cx="150" cy="150" r="40" stroke="cyan" stroke-width="5" fill="rgb(170,170,255)" />
+
+  <animate 
+           xlink:href="#c1"
+           attributeName="cx"
+           values="150;650;150"
+           dur="12s"
+           repeatCount="4"
+  />
+
+  <animate 
+           xlink:href="#c1"
+           attributeName="fill"
+           values="red;yellow;rgb(170,170,255)"
+           begin="click"
+           dur="0.5s"
+           repeatCount="1"
+  />
+
+</svg>
+
+<br />
+<h1>Score: <span id="res"></span></h1> 
+</body>
+</html>
